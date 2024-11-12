@@ -27,6 +27,29 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# sheikh
+CORS_ALLOWED_ORIGINS = [  
+    'http://localhost:5173',  
+]
+CORS_ALLOW_METHODS = [  
+    'GET',  
+    'POST',  
+    'PUT',  
+    'PATCH',  
+    'DELETE',  
+    'OPTIONS',  
+]
+CORS_ALLOW_HEADERS = [  
+    'accept',  
+    'accept-encoding',  
+    'authorization',  
+    'content-type',  
+    'dnt',  
+    'origin',  
+    'user-agent',  
+    'x-csrftoken',  
+    'x-requested-with',  
+]
 
 # Application definition
 
@@ -38,6 +61,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # sheikh
+    'corsheaders', 
 ]
 
 MIDDLEWARE = [
@@ -48,6 +73,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # sheikh
+    'corsheaders.middleware.CorsMiddleware',  
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'todoApp.urls'
